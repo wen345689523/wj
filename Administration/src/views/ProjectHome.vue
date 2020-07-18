@@ -3,12 +3,11 @@
   <div class="wjj-project">
     <!-- <router-view></router-view> -->
     <Title :title="'项目管理'"></Title>
-    <el-button type="success">所有可浏览项目</el-button>
-    <el-button type="success" @click="drawer = true">添加项目</el-button>
+    <el-button type="success" @click="drawer = true">所有可浏览项目</el-button>
+    <el-button type="success" @click="dialogFormVisible = true">添加项目</el-button>
     <Tab3 :tableData="tableData"></Tab3>
-    <el-drawer :visible.sync="drawer" :with-header="false">
-      <span>我来啦!</span>
-    </el-drawer>
+    <peoject-need-drawer :drawer="drawer" :form="form" :tableData="tableData" @onchangeTb="drawer=false"></peoject-need-drawer>
+    <peoject-Need-dialog :form="form" :dialogFormVisible="dialogFormVisible" @onchangeTb="dialogFormVisible=false"></peoject-Need-dialog>
   </div>
 </template>
 <script>
@@ -16,6 +15,10 @@ export default {
   data () {
     return {
       drawer: false,
+      dialogFormVisible: false,
+      form: {
+        name: ''
+      },
       tableData: [
         {
           date: "2016-05-02",

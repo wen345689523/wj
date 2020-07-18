@@ -1,7 +1,7 @@
 <!-- 头部组件 -->
 <template>
   <div class="title">
-    <h1>{{ title }}</h1>
+    <h1>{{ title }} <slot></slot></h1>
   </div>
 </template>
 <script>

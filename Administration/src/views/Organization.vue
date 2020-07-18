@@ -6,6 +6,7 @@
       <div class="item-modular">部门管理</div>
       <div class="item-modular">人员管理</div>
     </div>
+    <Upxlsx @getResult="getMyExcelData"></Upxlsx>
   </div>
 </template>
 
@@ -16,7 +17,12 @@ export default {
   },
   computed: {},
   watch: {},
-  methods: {}
+  methods: {
+    getMyExcelData (data) {
+      // console.log(data)
+      // data 为读取的excel数据，在这里进行处理该数据
+    }
+  }
 }
 </script>
 
