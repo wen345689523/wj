@@ -18,9 +18,9 @@
       <el-table-column align="center" prop="date" label="未解决BUG数">
       </el-table-column>
 
-      <el-table-column prop="date" label="操作">
+      <el-table-column prop="date" align="center" label="操作">
         <div class="wjj-bt">查看</div>
-        <div class="wjj-bt">添加</div>
+        <div class="wjj-bt">添加BUG</div>
       </el-table-column>
     </el-table>
   </div>

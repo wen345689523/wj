@@ -1,11 +1,9 @@
-                                                                    <!-- 左边导航栏 -->
+<!-- 左边导航栏 -->
 <template>
   <div class="wjj-nav">
     <ul>
       <li class="title">项目管理系统</li>
       <li v-for="(item, index) in navList" :key="index"
-        @click="active = index"
-        :class="index == active && 'active'"
         class="wjj-nav-list">
         <router-link :to="item.url">
           <i :class="item.icon"></i>
@@ -22,7 +20,6 @@ export default {
   props: {},
   data () {
     return {
-      active: -1,
       navList: [
         {
           url: '/TaskInformation',
@@ -66,28 +63,6 @@ export default {
         }
       ]
     }
-  },
-  mounted () {
-    setTimeout(() => {
-      switch (this.$router.currentRoute.name) {
-        case 'TaskInformation': this.active = 0
-          break
-        case 'TaskHall': this.active = 1
-          break
-        case 'Project': this.active = 2
-          break
-        case 'Need': this.active = 3
-          break
-        case 'Bug': this.active = 4
-          break
-        case 'WorkJournal': this.active = 5
-          break
-        case 'Organization': this.active = 6
-          break
-        case 'NumberRecord': this.active = 7
-          break
-      }
-    }, 100)
   }
 }
 </script>
@@ -104,9 +79,12 @@ export default {
     background: #303133;
     margin-bottom: 20px;
   }
-  .active {
+  .router-link-active {
     background: #303133;
   }
+  // .active {
+  //   background: #303133;
+  // }
   .wjj-nav-list {
     font-size: 20px;
     height: 60px;

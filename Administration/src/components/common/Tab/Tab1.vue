@@ -35,7 +35,7 @@
       </el-table-column>
 
       <el-table-column align="center" label="操作">
-        <div class="wjj-bt">查看</div>
+        <div class="wjj-bt" @click="$router.push(`/Project/Details?id=${111}`)">查看</div>
       </el-table-column>
     </el-table>
   </div>

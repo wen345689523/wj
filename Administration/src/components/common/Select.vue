@@ -34,15 +34,17 @@ export default {
 </script>
 
 <style lang="scss">
-.el-input__inner {
-  font-size: 12px;
-  height: 30px;
-  padding-left: 6px;
-}
-.el-input__suffix {
-  top: 5px;
-}
-.is-focus .el-input__suffix {
-  top: -5px;
+.Select {
+  .el-input__inner {
+    font-size: 12px;
+    height: 30px;
+    padding-left: 6px;
+  }
+  .el-input__suffix {
+    top: 5px;
+  }
+  .is-focus .el-input__suffix {
+    top: -5px;
+  }
 }
 </style>

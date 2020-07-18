@@ -3,9 +3,9 @@
   <div class="task-information">
     <Title :title="'任务信息'"></Title>
     <div class="modular">
-      <div class="item-modular">项目个数</div>
-      <div class="item-modular">需求个数</div>
-      <div class="item-modular">Bug个数</div>
+      <div class="item-modular" @click="$router.push('/Project')">项目个数</div>
+      <div class="item-modular" @click="$router.push('/Need')">需求个数</div>
+      <div class="item-modular" @click="$router.push('/Bug')">Bug个数</div>
     </div>
     <Tab1 :tableData="tableData"></Tab1>
     <Tab2 :tableData="tableData"></Tab2>

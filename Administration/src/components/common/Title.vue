@@ -19,6 +19,7 @@ h1 {
   line-height: 60px;
   font-size: 20px;
   padding-left: 10px;
+  font-weight: bold;
   &:before {
     position: absolute;
     top: 20px;
