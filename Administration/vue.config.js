@@ -57,11 +57,11 @@ module.exports = {
   }),
   chainWebpack: config => {
     config.resolve.alias
-      .set('@@', resolve('src/components'))
+      .set('@@', resolve('./src/components'))
     config
       .plugin('html')
       .tap(args => {
-        args[0].title = 'title名字'
+        args[0].title = '腾进达'
         return args
       })
   },
@@ -77,7 +77,7 @@ module.exports = {
     proxy: {
       '/': {
         target: 'http://192.168.0.121:8085/',
-        pathRewrite: { '^/api': '/' },
+        pathRewrite: { '^/api': './' },
         xfwd: true,
         ws: false
       }

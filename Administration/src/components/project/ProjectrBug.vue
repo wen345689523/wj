@@ -55,64 +55,7 @@
         </el-collapse-item>
       </el-collapse>
 
-      <el-dialog title="添加ErrBUG" :visible.sync="dialogFormVisible" center>
-        <el-form ref="form" :model="form" label-width="120px">
-          <el-form-item label="提交人员" :style="inputStlye">
-            <el-select v-model="form.name" placeholder="请选择活动区域">
-              <el-option label="区域一" value="shanghai"></el-option>
-              <el-option label="区域二" value="beijing"></el-option>
-            </el-select>
-          </el-form-item>
-          <el-form-item label="指派人" :style="inputStlye">
-            <el-select v-model="form.name" placeholder="请选择活动区域">
-              <el-option label="区域一" value="shanghai"></el-option>
-              <el-option label="区域二" value="beijing"></el-option>
-            </el-select>
-          </el-form-item>
-          <el-form-item label="解决人员" :style="inputStlye">
-            <el-select v-model="form.name" placeholder="请选择活动区域">
-              <el-option label="区域一" value="shanghai"></el-option>
-              <el-option label="区域二" value="beijing"></el-option>
-            </el-select>
-          </el-form-item>
-          <el-form-item label="异常等级" :style="inputStlye">
-            <el-select v-model="form.name" placeholder="请选择活动区域">
-              <el-option label="区域一" value="shanghai"></el-option>
-              <el-option label="区域二" value="beijing"></el-option>
-            </el-select>
-          </el-form-item>
-          <el-form-item label="软件版本" :style="inputStlye">
-            <el-input v-model="form.name"></el-input>
-          </el-form-item>
-          <el-form-item label="硬件版本" :style="inputStlye">
-            <el-input v-model="form.name"></el-input>
-          </el-form-item>
-          <el-form-item label="Errbug所属类型" :style="inputStlye">
-            <el-input v-model="form.name"></el-input>
-          </el-form-item>
-          <el-form-item label="标题" :style="inputStlye">
-            <el-input v-model="form.name"></el-input>
-          </el-form-item>
-          <el-form-item label="提交时间" :style="inputStlye">
-            <el-date-picker
-              v-model="form.name"
-              type="datetime"
-              placeholder="选择日期时间">
-            </el-date-picker>
-          </el-form-item>
-          <el-form-item label="描述">
-            <el-input size="medium" type="textarea" v-model="form.name"></el-input>
-          </el-form-item>
-          <el-form-item label="复现方法">
-            <el-input size="medium" type="textarea" v-model="form.name"></el-input>
-          </el-form-item>
-          <el-form-item>
-            <el-button type="primary" @click="onSubmit">立即创建</el-button>
-            <el-button @click="dialogFormVisible=false">取消</el-button>
-          </el-form-item>
-        </el-form>
-      </el-dialog>
-
+      <add-bug :dialogFormVisible="dialogFormVisible" @close="dialogFormVisible = false"></add-bug>
       <PdrawerBug :drawer="drawer" :form="form" :tableData="tableData" @onchangeTb="drawer=false"></PdrawerBug>
   </div>
 </template>

@@ -3,7 +3,7 @@
   <div class="table1">
     <p>未完成项目进度</p>
     <el-table :data="tableData" border style="width: 100%">
-      <el-table-column align="center" prop="date" label="序号">
+      <el-table-column align="center" prop="date" label="序号" width="55">
       </el-table-column>
 
       <el-table-column align="center" prop="date" label="项目级分类">

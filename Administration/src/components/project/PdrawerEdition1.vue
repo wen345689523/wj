@@ -50,19 +50,19 @@
                 <el-form-item label="任务标题">
                   <el-input v-model="form.name"></el-input>
                 </el-form-item>
-                <el-form-item label="指派人" :label-width="formLabelWidth">
+                <el-form-item label="指派人" >
                   <el-select v-model="form.region" placeholder="请选择活动区域">
                     <el-option label="区域一" value="shanghai"></el-option>
                     <el-option label="区域二" value="beijing"></el-option>
                   </el-select>
                 </el-form-item>
-                <el-form-item label="监理人" :label-width="formLabelWidth">
+                <el-form-item label="监理人" >
                   <el-select v-model="form.region" placeholder="请选择活动区域">
                     <el-option label="区域一" value="shanghai"></el-option>
                     <el-option label="区域二" value="beijing"></el-option>
                   </el-select>
                 </el-form-item>
-                <el-form-item label="执行人" :label-width="formLabelWidth">
+                <el-form-item label="执行人" >
                   <el-select v-model="form.region" placeholder="请选择活动区域">
                     <el-option label="区域一" value="shanghai"></el-option>
                     <el-option label="区域二" value="beijing"></el-option>

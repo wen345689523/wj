@@ -3,7 +3,7 @@
   <div class="table4">
     <p>BUG情况</p>
     <el-table :data="tableData" border style="width: 100%">
-      <el-table-column align="center" prop="date" label="序号">
+      <el-table-column align="center" prop="date" label="序号" width="55">
       </el-table-column>
 
       <el-table-column align="center" prop="date" label="项目名称">
@@ -19,8 +19,8 @@
       </el-table-column>
 
       <el-table-column prop="date" align="center" label="操作">
-        <div class="wjj-bt">查看</div>
-        <div class="wjj-bt">添加BUG</div>
+        <div class="wjj-bt" @click="changetab('task')">查看任务</div>
+        <div class="wjj-bt" @click="changetab('bug')">查看BUG</div>
       </el-table-column>
     </el-table>
   </div>
@@ -29,6 +29,11 @@
 export default {
   props: {
     tableData: Array
+  },
+  methods: {
+    changetab (type) {
+      this.$emit('onchangeTb', type)
+    }
   }
 }
 </script>

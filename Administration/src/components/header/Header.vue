@@ -13,20 +13,42 @@
       <div class="drawer">
         <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
           <el-tab-pane label="个人信息" name="user">
-            <el-upload
-              class="upload-demo"
-              ref="upload"
-              action="https://jsonplaceholder.typicode.com/posts/"
-              :on-preview="handlePreview"
-              :on-remove="handleRemove"
-              :file-list="fileList"
-              :auto-upload="false">
-              <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
-              <el-button style="margin-left: 10px;" size="small" type="success" @click="submitUpload">上传到服务器</el-button>
-              <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
-            </el-upload>
+            <el-form>
+              <el-form-item label="名字" prop="pass">
+                  分公司等多个
+                </el-form-item>
+                <el-form-item label="性别" prop="checkPass">
+                  男
+                </el-form-item>
+                <el-form-item label="性别" prop="checkPass">
+                  男
+                </el-form-item><el-form-item label="性别" prop="checkPass">
+                  男
+                </el-form-item><el-form-item label="性别" prop="checkPass">
+                  男
+                </el-form-item><el-form-item label="性别" prop="checkPass">
+                  男
+                </el-form-item>
+                <el-form-item>
+                  <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
+                  <el-button @click="resetForm('ruleForm')">重置</el-button>
+                </el-form-item>
+            </el-form>
           </el-tab-pane>
-          <el-tab-pane label="修改密码" name="possw">配置管理</el-tab-pane>
+          <el-tab-pane label="修改密码" name="possw">
+            <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+              <el-form-item label="密码" prop="pass">
+                <el-input type="password" v-model="form.name" autocomplete="off"></el-input>
+              </el-form-item>
+              <el-form-item label="确认密码" prop="checkPass">
+                <el-input type="password" v-model="form.name" autocomplete="off"></el-input>
+              </el-form-item>
+              <el-form-item>
+                <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
+                <el-button @click="resetForm('ruleForm')">重置</el-button>
+              </el-form-item>
+            </el-form>
+          </el-tab-pane>
         </el-tabs>
       </div>
     </el-drawer>
@@ -40,14 +62,11 @@ export default {
     return {
       drawer: false,
       activeName: 'user',
-      fileList: [{
-        name: 'food.jpeg',
-        url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
+      form: {
+        name: ''
       },
-      {
-        name: 'food2.jpeg',
-        url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
-      }]
+      ruleForm: '',
+      rules: ''
     }
   },
   computed: {},
@@ -65,14 +84,10 @@ export default {
       console.log(v)
     },
 
-    submitUpload () {
-      this.$refs.upload.submit()
+    submitForm (formName) {
     },
-    handleRemove (file, fileList) {
-      console.log(file, fileList)
-    },
-    handlePreview (file) {
-      console.log(file)
+    resetForm (formName) {
+      this.$refs[formName].resetFields()
     }
   },
   components: {},

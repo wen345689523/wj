@@ -12,7 +12,7 @@
         width="55">
       </el-table-column>
       <el-table-column
-        label="序号">
+        label="序号" width="55">
         <template slot-scope="scope">{{ scope.row.date }}</template>
       </el-table-column>
       <el-table-column

@@ -1,20 +1,20 @@
 <!-- 头部组件 -->
 <template>
   <div class="wjj-uptab">
-    <span style="margin-right:10px">
+    <span>
       <input class="input-file" type="file" @change="exportData"
       accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
       <el-button type="primary" size="medium" icon="el-icon-upload" @click="btnClick">上传Excel表格数据</el-button>
       <el-button type="primary" v-show="url" @click="subUp">确认修改</el-button>
       <el-button type="primary" @click="exportToExcel">导出</el-button>
-      <div ref="myXlst" contenteditable></div>
+      <div ref="myXlst" :style="`margin: ${url?'6px 0':0}`" contenteditable></div>
     </span>
   </div>
 </template>
 
 <script>
 import XLSX from 'xlsx'
-import { export_upjson_to_excel, export_json_to_excel } from '../../assets/js/Export2Excel'
+import { export_upjson_to_excel, export_json_to_excel } from './js/Export2Excel'
 export default {
   data () {
     return {

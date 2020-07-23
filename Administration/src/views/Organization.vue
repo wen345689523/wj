@@ -3,25 +3,30 @@
   <div class="organization">
     <Title :title="'组织管理'"></Title>
     <div class="modular">
-      <div class="item-modular">部门管理</div>
-      <div class="item-modular">人员管理</div>
+      <div class="item-modular" @click="acitive = 1">部门管理</div>
+      <div class="item-modular" @click="acitive = 2">人员管理</div>
     </div>
-    <Upxlsx @getResult="getMyExcelData"></Upxlsx>
+    <div v-show="acitive === 1">
+      <Branch :title="'公司部门'"></Branch>
+      <Vocation :title="'职位'"></Vocation>
+      <User-list :title="'角色'"></User-list>
+    </div>
+    <div v-show="acitive === 2">
+      <User-list :title="'所有人员'"></User-list>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   data () {
-    return {}
+    return {
+      acitive: 1
+    }
   },
   computed: {},
   watch: {},
   methods: {
-    getMyExcelData (data) {
-      // console.log(data)
-      // data 为读取的excel数据，在这里进行处理该数据
-    }
   }
 }
 </script>
