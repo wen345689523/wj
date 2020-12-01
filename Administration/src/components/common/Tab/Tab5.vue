@@ -55,6 +55,11 @@
 export default {
   props: {
     tableData: Array
+  },
+  methods: {
+    changetab () {
+      this.$emit('changetab')
+    }
   }
 }
 </script>

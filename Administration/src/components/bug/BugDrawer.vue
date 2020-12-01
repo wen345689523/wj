@@ -71,7 +71,7 @@ export default {
   data () {
     return {
       drawerBug: false,
-      dialogFormVisible: false,
+      dialogFormVisible: false
     }
   },
   methods: {

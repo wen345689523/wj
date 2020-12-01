@@ -86,7 +86,7 @@ export default {
       form: {
         name: ''
       },
-      activeNames: [1],
+      activeNames: [1, '1'],
       tableData: [
         {
           sord: 1,

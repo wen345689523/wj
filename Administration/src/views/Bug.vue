@@ -3,6 +3,7 @@
   <div class="need">
     <Title :title="'BUG管理'"></Title>
     <el-button type="success" @click="drawer = true">所有BUG浏览</el-button>
+    <el-button type="success" @click="drawer = true">已经解决的BUG</el-button>
     <el-button type="success" @click="drawer = true">我要处理的BUG</el-button>
     <Tab4 :tableData="tableData" @onchangeTb="onchangeTb"></Tab4>
     <bug-drawer :drawer="drawer" :form="form" :tableData="tableData" @onchangeTb="drawer = false"></bug-drawer>

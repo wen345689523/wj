@@ -1,13 +1,16 @@
 <template>
   <div id="app">
-    <div class="wjj-content">
+    <div v-if="$route.name === 'Login' || !$route.name">
+      <router-view></router-view>
+    </div>
+    <div class="wjj-content" v-else>
       <el-container>
         <el-aside width="200px">
           <Nav />
         </el-aside>
         <el-container>
           <el-header :height="'80px'">
-            <Header />
+            <Header ref="changeHeader" />
           </el-header>
           <el-main>
             <router-view></router-view>
@@ -19,8 +22,29 @@
 </template>
 
 <script>
+// import { getList } from './api/home'
 export default {
+  data () {
+    return {
+    }
+  },
+  watch: {
+    $route (to, from) {
+      if (from.name === 'Login') {
+        this.$refs.changeHeader.userInfo()
+      }
+    }
+  },
   components: {
+  },
+  mounted () {
+    // this.getList()
+  },
+  methods: {
+    // async getList () {
+    //   const req = await getList()
+    //   console.log(req)
+    // }
   }
 }
 </script>

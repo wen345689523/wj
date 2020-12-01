@@ -6,19 +6,17 @@
     <el-button type="success" @click="drawer = true">所有可浏览项目</el-button>
     <el-button type="success" @click="dialogFormVisible = true">添加项目</el-button>
     <Tab3 :tableData="tableData"></Tab3>
-    <peoject-need-drawer :drawer="drawer" :form="form" :tableData="tableData" @onchangeTb="drawer=false"></peoject-need-drawer>
-    <peoject-Need-dialog :form="form" :dialogFormVisible="dialogFormVisible" @onchangeTb="dialogFormVisible=false"></peoject-Need-dialog>
+    <peoject-need-drawer :drawer="drawer" @onchangeTb="drawer=false"></peoject-need-drawer>
+    <peoject-Need-dialog :dialogFormVisible="dialogFormVisible" @onchangeTb="dialogFormVisible=false"></peoject-Need-dialog>
   </div>
 </template>
 <script>
+import { get } from '../api/home'
 export default {
   data () {
     return {
       drawer: false,
       dialogFormVisible: false,
-      form: {
-        name: ''
-      },
       tableData: [
         {
           date: "2016-05-02",
@@ -41,9 +39,19 @@ export default {
           address: "上海市普陀区金沙江路 1516 弄"
         }
       ]
-    };
+    }
+  },
+  mounted () {
+    this.getList()
+  },
+  methods: {
+    getList () {
+      get('/api/blog/getlist').then(req => {
+        console.log(req)
+      })
+    }
   }
-};
+}
 </script>
 
 <style lang="scss">

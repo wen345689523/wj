@@ -30,12 +30,21 @@ axios.interceptors.request.use(
 // http response 拦截器
 axios.interceptors.response.use(
   response => {
-    return response
+    if (response.data.state === 202) {
+      // alert('请先登陆！')
+      // router.currentRoute.path !== 'login' &&
+      //   router.replace({
+      //     path: '/',
+      //     query: { redirect: router.currentRoute.path }
+      //   })
+      return response.data
+    }
+    return response.data
   },
   error => {
     if (error.response) {
       switch (error.response.status) {
-        case 401:
+        case 200:
           // 401 清除token信息并跳转到登录页面
 
           // store.commit(types.LOGOUT)

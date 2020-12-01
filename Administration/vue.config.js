@@ -76,8 +76,8 @@ module.exports = {
     },
     proxy: {
       '/': {
-        target: 'http://192.168.0.121:8085/',
-        pathRewrite: { '^/api': './' },
+        target: 'http://192.168.3.128:8991/',
+        // pathRewrite: { '^/api': './' },
         xfwd: true,
         ws: false
       }

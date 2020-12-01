@@ -3,6 +3,7 @@
   <div class="need">
     <Title :title="'积分管理'"></Title>
     <Tab6 :tableData="tableData"></Tab6>
+    <Ue :defaultMsg='content' :config='config' ref="ue"></Ue>
   </div>
 </template>
 
@@ -32,7 +33,17 @@ export default {
           name: "王小虎",
           address: "上海市普陀区金沙江路 1516 弄"
         }
-      ]
+      ],
+      content: '请编辑相关内容',
+      config: {
+        initialFrameWidth: null,
+        initialFrameHeight: 350
+      }
+    }
+  },
+  methods: {
+    baocun () {
+      console.log(this.$refs.ue.getUEContent())
     }
   }
 }

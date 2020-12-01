@@ -2,10 +2,12 @@
 <template>
   <div class="need">
     <Title :title="'工作日志'"></Title>
-    <el-button type="success">部门日志</el-button>
-    <el-button type="success">个人日志</el-button>
+    <el-button type="success" @click="drawerAll = true">全部日志</el-button>
+    <el-button type="success" @click="drawerAll = true">部门日志</el-button>
+    <el-button type="success" @click="drawerAll = true">个人日志</el-button>
     <el-button type="success" @click="dialogFormVisible = true">添加日志</el-button>
-    <Tab5 :tableData="tableData"></Tab5>
+    <Tab5 :tableData="tableData" @changetab="drawerInfo = true"></Tab5>
+
     <el-dialog title="添加工作日志" :visible.sync="dialogFormVisible" center>
       <div class="work-left">
         <el-form>
@@ -32,6 +34,8 @@
         <a href="444">54454455454</a>
       </div>
     </el-dialog>
+    <Pdrawer :drawer="drawerInfo" :form="form" :tableData="tableData" @onchangeTb="drawerInfo=false"></Pdrawer>
+    <WorkDrawer :drawer="drawerAll" :form="form" :tableData="tableData" @onchangeTb="drawerAll=false"></WorkDrawer>
   </div>
 </template>
 
@@ -39,6 +43,9 @@
 export default {
   data () {
     return {
+      drawerAll: false,
+      drawerTask: false,
+      drawerInfo: false,
       dialogFormVisible: false,
       form: {
         name: ''
@@ -80,6 +87,15 @@ export default {
   .el-textarea__inner {
     width: 60%;
     height: 200px;
+  }
+  .el-drawer {
+    width: 85% !important;;
+  }
+  .wjj-bt {
+    display: inline-block;
+    cursor: pointer;
+    margin-right: 10px;
+    color: #00b79c;
   }
   .work-left {
     display: inline-block;

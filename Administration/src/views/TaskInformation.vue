@@ -3,20 +3,35 @@
 <template>
   <div class="task-information">
     <Title :title="'任务信息'"></Title>
-    <div class="modular">
-      <div class="item-modular" @click="$router.push('/Project')">项目个数</div>
-      <div class="item-modular" @click="$router.push('/Need')">需求个数</div>
-      <div class="item-modular" @click="$router.push('/Bug')">Bug个数</div>
+    <div style="float: left; width: 85%;">
+      <div class="modular">
+        <div class="item-modular" @click="$router.push('/Project')">项目个数</div>
+        <div class="item-modular" @click="$router.push('/Need')">需求个数</div>
+        <div class="item-modular" @click="$router.push('/Bug')">Bug个数</div>
+      </div>
+      <br/>
+      <el-collapse v-model="activeNames" @change="handleChange">
+        <el-collapse-item title="0 个紧急处理任务" name="1">
+          <div class="wjj-text" @click="drawerTask = true" style="cursor: pointer;">XXXXXX大数据大数据的任务</div>
+          <div class="wjj-text">剩余时间: 2020-07-23</div>
+        </el-collapse-item>
+      </el-collapse>
+      <Tab1 :tableData="tableData"></Tab1>
+      <Tab2 :tableData="tableData" @onchangeTb="onchangeTb"></Tab2>
     </div>
-    <br/>
-    <el-collapse v-model="activeNames" @change="handleChange">
-      <el-collapse-item title="0 个紧急处理任务" name="1">
-        <div class="wjj-text" @click="drawerTask = true" style="cursor: pointer;">XXXXXX大数据大数据的任务</div>
-        <div class="wjj-text">剩余时间: 2020-07-23</div>
-      </el-collapse-item>
-    </el-collapse>
-    <Tab1 :tableData="tableData"></Tab1>
-    <Tab2 :tableData="tableData" @onchangeTb="onchangeTb"></Tab2>
+
+    <div style="float: right; width: 14%; height: 100%;">
+      <el-card class="box-card">
+        <div slot="header" class="clearfix">
+          <span>积分排名</span>
+          <p>我的积分：162分, 排名：16</p>
+        </div>
+        <div v-for="o in 9" :key="o" class="text item">
+          <i :class="`myIcon myIcon${o}`"></i>
+          王某某
+        </div>
+      </el-card>
+    </div>
 
     <el-drawer :visible.sync="drawerTask">
         <Title style="margin: -82px 0 0 20px; width: 200px;" :title="'个人任务列表'">
@@ -27,7 +42,6 @@
         <h4>未完成</h4>
         <Ptab :tableData="tableData" @onchangeTb="drawerInfo=true"></Ptab>
     </el-drawer>
-
     <bug-drawer :drawer="drawer" :form="form" :tableData="tableData" @onchangeTb="drawer = false"></bug-drawer>
     <Pdrawer :drawer="drawerInfo" :form="form" :tableData="tableData" @onchangeTb="drawerInfo=false"></Pdrawer>
   </div>
@@ -81,6 +95,59 @@ export default {
 <style lang="scss">
 .task-information {
   position: relative;
+  height: 100%;
+  .el-card {
+    height: 100%;
+    .text {
+      font-size: 14px;
+    }
+
+    .item {
+      position: relative;
+      margin-bottom: 6px;
+    }
+    .myIcon {
+      position: relative;
+      display: inline-block;
+      top: 10px;
+      width: 30px;
+      height: 30px;
+      background: url(../assets/1.png) no-repeat;
+      background-size: 100%;
+    }
+    .myIcon2 {
+      background: url(../assets/2.png) no-repeat;
+      background-size: 100%;
+    }
+    .myIcon3 {
+      background: url(../assets/3.png) no-repeat;
+      background-size: 100%;
+    }
+    .myIcon4 {
+      background: url(../assets/4.png) no-repeat;
+      background-size: 100%;
+    }
+    .myIcon5 {
+      background: url(../assets/5.png) no-repeat;
+      background-size: 100%;
+    }
+    .myIcon6 {
+      background: url(../assets/6.png) no-repeat;
+      background-size: 100%;
+    }
+    .myIcon7 {
+      background: url(../assets/7.png) no-repeat;
+      background-size: 100%;
+    }
+    .myIcon8 {
+      background: url(../assets/8.png) no-repeat;
+      background-size: 100%;
+    }
+    .myIcon9 {
+      background: url(../assets/9.png) no-repeat;
+      background-size: 100%;
+    }
+  }
   .el-drawer {
     width: 85% !important;;
   }
@@ -103,15 +170,24 @@ export default {
     display: flex;
     justify-content: space-around;
     .item-modular {
-      width: 200px;
-      height: 100px;
-      line-height: 100px;
+      width: 418px;
+      height: 223px;
+      line-height: 223px;
       text-align: center;
       color: #ffffff;
       font-size: 20px;
       border-radius: 10px;
       cursor: pointer;
       background: #409eff;
+    }
+    .item-modular:nth-of-type(1) {
+      background: url(../assets/project.png) no-repeat;
+    }
+    .item-modular:nth-of-type(2) {
+      background: url(../assets/need.png) no-repeat;
+    }
+    .item-modular:nth-of-type(3) {
+      background: url(../assets/bug.png) no-repeat;
     }
   }
 }

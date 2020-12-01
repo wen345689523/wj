@@ -1,22 +1,16 @@
 // 请求管理
-// import request from '@/api/http'
+import axios from '../http/index'
 
-// let serverUrl = {
-//   getList: '/users',
-//   createUser: '/users',
-//   updateUser: '/users',
-//   deleteUser: '/users'
-// }
+// get请求
+export const get = (url) => {
+  return axios.get(url).then(data => {
+    return Promise.resolve(data)
+  })
+}
 
-// export const getList = () => {
-//   return request.get(serverUrl.getList)
-// }
-// export const createUser = (params) => {
-//   return request.post(serverUrl.createUser, params)
-// }
-// export const updateUser = (id, params) => {
-//   return request.patch(`${serverUrl.updateUser}/${id}`, params)
-// }
-// export const deleteUser = (id) => {
-//   return request.delete(`${serverUrl.deleteUser}/${id}`)
-// }
+// post请求
+export const post = (url, params) => {
+  return axios.post(url, params).then(data => {
+    return Promise.resolve(data)
+  })
+}

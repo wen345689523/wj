@@ -60,6 +60,11 @@ export default {
           url: '/NumberRecord',
           name: '积分记录',
           icon: 'el-icon-coin'
+        },
+        {
+          url: '/Admin',
+          name: '系统管理',
+          icon: 'el-icon-coin'
         }
       ]
     }
